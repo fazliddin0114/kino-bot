@@ -37,7 +37,7 @@ class Config:
     SECRET_CHANNEL_ID = -1002537276349
     
     BOT_TOKEN = "7808158374:AAGMY8mkb0HVi--N2aJyRrPxrjotI6rnm7k"
-    ADMIN_IDS = [7871012050]  # Adminlar ro'yxati
+    ADMIN_IDS = [7871012050, 7183540853 ]  # Adminlar ro'yxati
     
     # Majburiy obuna kanallari
     REQUIRED_CHANNELS = ["@ajoyib_kino_kodlari1"]
@@ -169,8 +169,6 @@ async def admin_panel(message: types.Message):
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="🎬 Kino qo'shish")],
-            [KeyboardButton(text="📊 Statistika")],
-            
             [KeyboardButton(text="🏠 Asosiy menyu")]
         ],
         resize_keyboard=True,
