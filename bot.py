@@ -87,7 +87,6 @@ async def start_handler(message: types.Message):
     else:
         await message.answer(
             "Xush kelibsiz! Botdan foydalanishingiz mumkin. Kino kodini kiriting\n\n"
-            f"Reklama kanalimiz: {Config.CHANNEL_LINK}"
         )
 
 # Obunani tekshirish callback
@@ -171,7 +170,7 @@ async def admin_panel(message: types.Message):
         keyboard=[
             [KeyboardButton(text="🎬 Kino qo'shish")],
             [KeyboardButton(text="📊 Statistika")],
-            [KeyboardButton(text="📢 Reklama yuborish")],
+            
             [KeyboardButton(text="🏠 Asosiy menyu")]
         ],
         resize_keyboard=True,
@@ -251,18 +250,6 @@ async def handle_movie_file(message: Message, state: FSMContext):
         await message.answer("❌ Kino yuklashda xatolik yuz berdi!")
     
     await state.clear()
-
-# Statistika
-@dp.message(F.text == "📊 Statistika")
-async def show_stats(message: types.Message):
-    if message.from_user.id not in Config.ADMIN_IDS:
-        await message.answer("❌ Siz admin emassiz!")
-        return
-    
-    # Bu yerda haqiqiy statistika logikasi bo'lishi kerak
-    await message.answer("📊 Statistika ko'rsatkichlari:\n\n"
-                       f"🔹 Majburiy obuna kanallari: {len(Config.REQUIRED_CHANNELS)}\n"
-                       f"🔹 Adminlar soni: {len(Config.ADMIN_IDS)}")
 
 # Asosiy menyu
 @dp.message(F.text == "🏠 Asosiy menyu")
